@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Terrain-Adaptive Fall Recovery for Wheeled-Quadruped Robots: A Teacher-Guided Learning Framework</title>
+  <link href="res/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="res/academicons-1.9.2/css/academicons.min.css"/>
+  <script src="res/js/fa.js"></script>
+
+	<style>
+      .header {
+        width: auto;
+        max-width: auto;
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+        margin-bottom: 2rem;
+        background-color: rgba(250, 250, 250)
+      }
+
+      a:link,a:visited
+      {
+        color: #0071bc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: #208799;
+      }
+
+      hr {
+        border: 10;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 113, 188, 0.2), rgba(0, 0, 0, 0.1), rgba(0, 113, 188, 0.2));
+      }
+
+      .gap-30 {height:30px;}
+      .gap-20 {height:20px;}
+      .gap-10 {height:10px;}
+      .gap-5 {height:5px;}
+
+      .no-gutters {
+      margin-right: 0;
+      margin-left: 0;
+    }
+
+    .btn {
+      margin-left: 0.2rem;
+      margin-right: 0.2rem;
+		}
+
+
+	</style>
+</head>
+
+<div class="header">
+	<div class="container">
+		<center><h1>Terrain-Adaptive Fall Recovery for Wheeled-Quadruped Robots: A Teacher-Guided Learning Framework</h1></center>
+		<div class="gap-20"></div>
+		<!--------------------- Author Names --------------------->
+		<center>
+			<a href="https://https://boyuandeng.github.io/" target="_blank" style="font-size:20px">Boyuan Deng</a><sup
+						style="font-size:14px">*</sup>,
+			<!-- <a href="https://www.iit.it/it/people-details/-/people/luca-rossini" target="_blank" style="font-size:20px">Luca Rossini</a><sup
+						style="font-size:14px"></sup>,
+			<a href="https://jaywang724.github.io/" target="_blank" style="font-size:20px">Jin Wang</a><sup
+						style="font-size:14px"></sup>,
+      <a href="https://www.iit.it/it/people-details/-/people/weijie-wang" target="_blank" style="font-size:20px">Weijie Wang</a><sup
+						style="font-size:14px"></sup>, -->
+      <a href="https://www.iit.it/it/people-details/-/people/nikos-tsagarakis" target="_blank" style="font-size:20px">Nikolaos Tsagarakis</a><sup
+						style="font-size:14px"></sup>
+		</center>
+
+		<div class="gap-10"></div>
+		<center>
+			Istituto Italiano di Tecnologia
+		</center>
+
+		<div class="gap-20"></div>
+
+		<center>
+			<div class="btn-group" role="group">
+
+				<!-- <a href="pdf/manuscript.pdf"> -->
+          <a href="">
+					<button type="button" class="btn btn-dark">
+						<span class="icon">
+              <i class="fas fa-file-pdf"></i> Paper
+            </span>
+					</button>
+				</a>
+
+				<a href="">
+					<button type="button" class="btn btn-dark">
+          <span><i class="ai ai-arxiv"></i> Arxiv</span>
+					</button>
+				</a>
+
+
+				<a href="">
+					<button type="button" class="btn btn-dark">
+						<span class="icon">
+              <i class="fab fa-twitter"></i> Summary
+            </span>
+					</button>
+				</a>
+
+				<a href="">
+					<button type="button" class="btn btn-dark">
+						<span class="icon">
+              <i class="fab fa-github"></i> Code
+            </span>
+					</button>
+				</a>
+
+				<a href="">
+					<button type="button" class="btn btn-dark">
+						<span class="icon">
+              <i class="fab fa-youtube"></i> Pitch Video
+            </span>
+					</button>
+				</a>
+
+			</div>
+		</center>
+
+	</div>
+</div>
+
+<div class="container">
+
+    <!-- <center>
+    <iframe width="70%" height="400" src="https://www.youtube.com/embed/78Ur4Cb2AS4" title="Learning to Recover" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </center>
+    <center>
+        <p style="width:90%; text-align: center; white-space: normal;">
+    <b>Learning to recover with wheel-leg coordination</b>
+    </center> -->
+
+
+
+    <!--------------------- abstract --------------------->
+    <div class="gap-30"></div>
+    <h2 style="text-align: center"> Abstract </h2>
+    <div class="gap-10"></div>
+    <center>
+        <p style="width:90%; text-align: justify; white-space: normal;"> 
+          We present an optimal posture formulation for robotic recovery on uneven terrain and a novel teacher-student reinforcement learning framework that enables a student policy to infer external terrain conditions using only proprioceptive sensing.</p>
+    </center>
+
+
+    <h2 style="text-align: center"> Framework and Fall Simulation</h2>
+
+    <!-- <div class="gap-10"></div>
+    <center><p style="width:90%; text-align: justify; white-space: normal;">
+      We study how quickly the policy can adapt to shifts in the visual field.
+    </p></center> -->
+
+    <center>
+      <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 30px;">
+        <img class="img-fluid" src="images/framework.pdf" style="width: 48%;" alt="">
+        <img class="img-fluid" src="images/compress_ini.png" style="width: 48%;" alt="">
+    </div>
+	</center>
+
+
+
+        <!-- <div class="gap-10"></div>
+    <center><p style="width:90%; text-align: justify; white-space: normal;">
+      The strategy can learn effective recovery actions and demonstrates remarkable robustness.
+    </p></center>
+    <div class="row no-gutters d-flex justify-content-center">
+     
+        <div class="col-5 text-center">
+          <center> <b>Massive testing</b></center>
+            <video controls playsinline autoplay loop muted src="res/videos/KYON_all.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col-5 text-center">
+          <center> <b>Wheel-Leg coordination</b></center>
+            <video controls playsinline autoplay loop muted src="res/videos/wheel_leg.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+    </div> -->
+        <!-- <div class="gap-10"></div>
+    <center><p style="width:90%; text-align: justify; white-space: normal;"></p></center>
+
+    <div class="row no-gutters">
+        <div class="col-4">
+          <center> <b>Skill I</b></center>
+            <video controls playsinline autoplay loop muted src="res/videos/skill_1.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col-4">
+          <center> <b>Skill II</b></center>
+            <video controls playsinline autoplay loop muted src="res/videos/skill_2.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col-4">
+          <center> <b>Skill III</b></center>
+            <video controls playsinline autoplay loop muted src="res/videos/skill_3.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+    </div>
+
+
+    	<hr> -->
+    <!-- <h2 style="text-align: center"> DS-policy vs Baseline </h2>
+
+    <div class="gap-10"></div>
+    <center><p style="width:90%; text-align: justify; white-space: normal;">
+      We show that our DS-policy can recover from the falling postures of the baseline.
+    </p></center>
+
+    <div class="row no-gutters d-flex justify-content-center">
+        <div class="col-4">
+          <center> <b>DS-policy</b></center>
+            <video controls playsinline autoplay loop muted src="res/videos/DS_policy.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col-4">
+          <center> <b>Baseline</b></center>
+            <video controls playsinline autoplay loop muted src="res/videos/baseline.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+    </div>
+    </div>
+
+    <hr> -->
+    <!-- <h2 style="text-align: center"> Wheel vs Leg-driven Recovery </h2>
+
+    <div class="gap-10"></div>
+    <center><p style="width:90%; text-align: justify; white-space: normal;">
+      We show that our policy performs on the same robot across different driving models.
+    </p></center>
+
+
+    <div class="row no-gutters d-flex justify-content-center">
+        <div class="col-4">
+          <center> <b>Wheel</b></center>
+            <video controls playsinline autoplay loop muted src="res/videos/KYON_wheel.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col-4">
+          <center> <b>Leg-driven</b> </center>
+            <video controls playsinline autoplay loop muted src="res/videos/KYON_leg.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+    </div> -->
+    <!-- <div class="row no-gutters">
+        <div class="col">
+            <video controls playsinline autoplay loop muted src="res/blind_indoor.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col">
+            <video controls playsinline autoplay loop muted src="res/vision_indoor.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col">
+            <video controls playsinline autoplay loop muted src="res/long_stairs_blind.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col">
+            <video controls playsinline autoplay loop muted src="res/long_stairs_vision.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col">
+            <video controls playsinline autoplay loop muted src="res/flat_blind.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col">
+            <video controls playsinline autoplay loop muted src="res/flat_vision.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div> -->
+    </div>
+    <!-- <hr> -->
+    <!-- <hr> -->
+    <!-- <h2 style="text-align: center"> Cross-Platform Validation </h2>
+
+    <div class="gap-10"></div>
+    <center><p style="width:90%; text-align: justify; white-space: normal;">
+      We show that our policy performs on the Unitree Go2-W robot.
+    </p></center> -->
+
+
+    <!-- <div class="row no-gutters d-flex justify-content-center">
+        <div class="col-4">
+          <center> <b>Wheel</b></center>
+            <video controls playsinline autoplay loop muted src="res/videos/Unitree_wheel.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col-4">
+          <center> <b>Leg-driven</b> </center>
+            <video controls playsinline autoplay loop muted src="res/videos/Unitree_leg.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+    </div> -->
+    <!-- <div class="row no-gutters d-flex justify-content-center">
+      
+        <div class="col-4">
+          <center> <b>Wheel assisted</b> </center>
+            <video controls playsinline autoplay loop muted src="res/videos/unitree_wheel_as_1.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col-4">
+          <center> <b>Wheel assisted</b> </center>
+            <video controls playsinline autoplay loop muted src="res/videos/unitree_wheel_as_2.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+    </div> -->
+    <hr>
+    <h2 style="text-align: center"> Diverse Terrains Depolyment </h2>
+
+    <div class="gap-10"></div>
+    <center><p style="width:90%; text-align: justify; white-space: normal;">
+      We show that our policy performs on the non-flat environments.
+    </p></center>
+
+
+    <div class="row no-gutters d-flex justify-content-center">
+        <div class="col-4">
+          <center> <b>Box Grid</b></center>
+            <video controls playsinline autoplay loop muted src="res/videos/box_grid.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col-4">
+          <center> <b>Pyramid Slope</b> </center>
+            <video controls playsinline autoplay loop muted src="res/videos/pyramid_slope.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col-4">
+          <center> <b>Random Rough</b> </center>
+            <video controls playsinline autoplay loop muted src="res/videos/random rough.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+    </div>
+    <div class="row no-gutters d-flex justify-content-center">
+      
+        <div class="col-4">
+          <center> <b>Pyramid Stairs</b> </center>
+            <video controls playsinline autoplay loop muted src="res/videos/pyramid_stairs.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col-4">
+          <center> <b>Inverted Pyramid Stairs</b> </center>
+            <video controls playsinline autoplay loop muted src="res/videos/inv_pyramid_stair.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+    </div>
+    <!-- <div class="row no-gutters">
+        <div class="col">
+            <video controls playsinline autoplay loop muted src="res/long_stairs_blind.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col">
+            <video controls playsinline autoplay loop muted src="res/long_stairs_vision.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+    </div>
+    <div class="row no-gutters">
+        <div class="col">
+            <video controls playsinline autoplay loop muted src="res/flat_blind.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col">
+            <video controls playsinline autoplay loop muted src="res/flat_vision.mp4" width="97%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div> -->
+    </div>
+
+    <hr>
+
+
+
+      	<h2 style="text-align: center"> Bibtex </h2>
+	<pre style="background-color: #f4f4f4;">
+
+<!-- 
+@inproceedings{loquercio2023learning,
+  title={Learning visual locomotion with cross-modal supervision},
+  author={Boyuan Deng, Luca Rossini, Jin Wang, Weijie Wang and Nikolaos Tsagarakis},
+  booktitle={IEEE International Conference on Robotics and Automation (IROS)},
+  pages={7295--7302},
+  year={2023},
+  organization={IEEE}
+} -->
+
+  </pre>
+	<hr>
+
+	<b><span style="font-size:22px">Acknowledgements:</span></b><br>
+
+  <!-- We would like to thank Andrea Patrizi, Despoina Maligianni, Rui Dai, Yifang Zhang Maolin Lei, Jingcheng Jiang, Kuanqi Cai, and Carlo Rizzardo for their discussions. -->
+
+	<p style="text-align: right"><a href="https://github.com/HaozhiQi/haozhiqi.github.io/tree/master/hora" style="font-size:12px;">Template for this Website</a></p>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="res/js/bootstrap.min.js"></script>
+
+</div>
+</html>
